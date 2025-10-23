@@ -5,7 +5,7 @@
 
 [![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/b0cd7327a0d04ac52c0cfd8067d8622c2ee775f6/2Failover.jpg)](https://youtu.be/KwKtMHBQXk4)
 
-## 🧩 3️⃣ Failover Routing Policy
+## 🧩  Failover Routing Policy
 
 > Uses **Primary and Secondary** endpoints.
 > If the **primary fails (health check fails)**, traffic automatically shifts to the **secondary**.
@@ -39,7 +39,7 @@
 ---
 
 
-## 1️⃣ Install and Configure Nginx with Certbot
+##  Install and Configure Nginx with Certbot
 
 ```bash
 sudo apt update
@@ -53,7 +53,7 @@ sudo systemctl status nginx
 
 ---
 
-## 2️⃣ Obtain Wildcard SSL Certificate Using Certbot (Manual DNS Challenge)
+##  Obtain Wildcard SSL Certificate Using Certbot (Manual DNS Challenge)
 
 ```bash
 sudo certbot certonly --manual --preferred-challenges=dns \
@@ -84,7 +84,7 @@ Add TXT in the Route53
 and Confirm  via the google dns and console
 ---
 
-## 3️⃣ Configure Nginx for SSL Redirection in the AP-South-1
+##  Configure Nginx for SSL Redirection in the AP-South-1
 
 ```bash
 #!/bin/bash
@@ -144,7 +144,7 @@ systemctl restart nginx
 
 ---
 
-## 6️⃣ Copy SSL Certificates Between Instances
+##  Copy SSL Certificates Between Instances
 
 From **Source Instance**:
 
@@ -166,7 +166,7 @@ Connect via SSH:
 ```bash
 ssh -i "new-keypair.pem" ubuntu@ec2-13-201-186-36.ap-south-1.compute.amazonaws.com
 ```
-## 7️⃣ EC2 User Data Script for Auto Setup (US-EAST-1 Example)
+##  EC2 User Data Script for Auto Setup (US-EAST-1 Example)
 
 ```bash
 #!/bin/bash
@@ -226,7 +226,7 @@ systemctl restart nginx
 
 ---
 
-## 8️⃣ Copy Certificates to Another Instance (US-EAST-1)
+##  Copy Certificates to Another Instance (US-EAST-1)
 
 From Source:
 
@@ -248,6 +248,8 @@ Connect:
 ```bash
 ssh -i "nv-keypair.pem" ubuntu@ec2-54-221-22-107.compute-1.amazonaws.com
 ```
+
+---
 
 ```bash
 I=1
