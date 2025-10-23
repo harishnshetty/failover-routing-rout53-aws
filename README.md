@@ -1,10 +1,43 @@
-# 🧭 AWS Route 53 Simple Routing Project — With SSL nginx
+# 🧭 AWS Route 53 Failover Routing Project — With SSL nginx
 
 ## For more projects, check out  
 [https://harishnshetty.github.io/projects.html](https://harishnshetty.github.io/projects.html)
 
-[![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/b0cd7327a0d04ac52c0cfd8067d8622c2ee775f6/1Simple.jpg)](https://youtu.be/KwKtMHBQXk4)
+[![Video Tutorial](https://github.com/harishnshetty/image-data-project/blob/b0cd7327a0d04ac52c0cfd8067d8622c2ee775f6/2Failover.jpg)](https://youtu.be/KwKtMHBQXk4)
+
+## 🧩 3️⃣ Failover Routing Policy
+
+> Uses **Primary and Secondary** endpoints.
+> If the **primary fails (health check fails)**, traffic automatically shifts to the **secondary**.
+
+```
+           🌍 Internet Users
+                   |
+                   ▼
+            +----------------+
+            |   Route 53     |
+            | Failover Policy|
+            +----------------+
+                   |
+                   ▼
+        ┌───────────────────────┐
+        | Health Check: Primary |
+        | EC2 (ap-south-1)      |
+        └───────────────────────┘
+                   |
+                   ▼
+        ✅ Healthy → Serve traffic
+        ❌ Unhealthy → Failover ▼
+                     ┌──────────────────────┐
+                     | Secondary EC2        |
+                     | (us-east-1)          |
+                     └──────────────────────┘
+```
+
+✅ **Use Case:** Disaster recovery, high availability
+💡 Example: `failover.harishshetty.xyz`
 ---
+
 
 ## 1️⃣ Install and Configure Nginx with Certbot
 
