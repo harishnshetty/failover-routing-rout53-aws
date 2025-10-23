@@ -248,3 +248,14 @@ Connect:
 ```bash
 ssh -i "nv-keypair.pem" ubuntu@ec2-54-221-22-107.compute-1.amazonaws.com
 ```
+
+```bash
+I=1
+while true
+do
+  curl -sL https://failover.harishshetty.xyz | grep -i '\-server'
+  echo "The Count value is $I"
+  I=$((I+1))
+  sleep 1
+done
+```
